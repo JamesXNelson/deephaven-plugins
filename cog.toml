@@ -4,7 +4,7 @@ disable_changelog = false
 generate_mono_repository_global_tag = true
 branch_whitelist = [ "main" ]
 skip_ci = "[skip ci]"
-skip_untracked = true
+skip_untracked = false
 tag_prefix = "v"
 
 # for global versions only; we don't use global version
@@ -12,7 +12,8 @@ pre_bump_hooks = []
 post_bump_hooks = []
 # for package versions, which is what we actually use
 pre_package_bump_hooks = [
-    "echo current version: {{version}}"
+    "echo Updating {{package} to version {{version}}"
+    "cog changelog --at {{version }} -t full_hash > GITHUB_CHANGELOG.md"
 ]
 post_package_bump_hooks = []
 
