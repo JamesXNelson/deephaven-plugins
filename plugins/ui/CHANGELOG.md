@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file. See [conven
 ## ui-v0.2.0 - 2024-01-12
 #### Features
 - testing bumps - (4aa4680) - James X Nelson
+#### Miscellaneous Chores
+- bumping versions - (a19d365) - James X Nelson
+
+- - -
+
+## ui-v0.2.0 - 2024-01-12
+#### Features
+- testing bumps - (4aa4680) - James X Nelson
 
 - - -
 

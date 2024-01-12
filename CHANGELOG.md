@@ -6,6 +6,15 @@ All notable changes to this project will be documented in this file. See [conven
 ### Package updates
 - ui bumped to ui-v0.2.0
 ### Global changes
+#### Miscellaneous Chores
+- bumping versions - (a19d365) - James X Nelson
+
+- - -
+
+## v0.3.0 - 2024-01-12
+### Package updates
+- ui bumped to ui-v0.2.0
+### Global changes
 
 - - -
 
