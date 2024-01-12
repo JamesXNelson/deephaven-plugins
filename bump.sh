@@ -48,6 +48,16 @@ function usage() {
 $all_plugins"
 } 2> /dev/null
 
+if [ -n "$(git status --short)" ]; then
+    {
+        log_error "Detected uncommitted files via git status:"
+        git status --short
+        log_error "Releases can only be performed with a clean git status"
+        log_error 'You must commit/stash your changes, or `git reset --hard` to erase them'
+        exit 97
+    } 2>/dev/null
+fi
+
 package=
 while (( $# > 0 )); do
     case "$1" in
@@ -61,7 +71,7 @@ while (( $# > 0 )); do
                 log_error "Illegal argument $1. Already requested release of package '$package'"
                 log_error "You can only release one package at a time"
                 } 2>/dev/null
-                exit 97
+                exit 96
             fi
             if grep -q "$1" <<< "$all_plugins"; then
                 package="$1"
@@ -70,7 +80,7 @@ while (( $# > 0 )); do
                 log_error "Illegal argument $1. Expected one of:
 $all_plugins"
                 } 2>/dev/null
-                exit 96
+                exit 95
             fi
        ;;
     esac
@@ -83,7 +93,7 @@ if [ -z "$package" ]; then
     log_error "Valid choices are:
 $all_plugins"
     } 2>/dev/null
-    exit 96
+    exit 94
 fi
 
 { log_info "Releasing package '$package'" ; } 2>/dev/null
