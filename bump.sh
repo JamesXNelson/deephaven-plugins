@@ -34,7 +34,6 @@ if ! which gh >/dev/null; then
     exit 98
     } 2>/dev/null
 fi
-
 if ! gh auth status; then
     {
     log_error "You must be logged into gh to continue!"
@@ -42,6 +41,20 @@ if ! gh auth status; then
     exit 97
     } 2>/dev/null
 fi
+
+# we need to run a gh command to ensure you've set the gh repo already.
+# we also can't pipe the output of this command to /dev/null, or else gh will always exit with code 0
+# so, we'll prepare the user for some noise.
+echo
+log_info "Listing previous release to ensure gh is setup correctly:"
+if ! gh release list --limit 1 2>/dev/stdout; then
+    {
+    log_error "You must select the correct gh repo to continue!"
+    log_error 'Run `gh repo set-default git@github.com:deephaven/deephaven-plugins.git`'
+    exit 96
+    } 2>/dev/null
+fi
+echo
 
 all_plugins="$(cd plugins ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
 
