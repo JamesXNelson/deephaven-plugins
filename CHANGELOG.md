@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.0 - 2024-01-12
+### Package updates
+- json bumped to json-v0.3.0
+### Global changes
+#### Features
+- added some stuff - (8f9b403) - James X Nelson
+- new release time! - (9ea4f2b) - James X Nelson
+- new release time! - (73aaf2c) - James X Nelson
+#### Miscellaneous Chores
+- **(version)** v0.4.0 - (28ce1e3) - James X Nelson
+
+- - -
+
 ## v0.4.0 - 2024-01-12
 ### Package updates
 - json bumped to json-v0.2.0

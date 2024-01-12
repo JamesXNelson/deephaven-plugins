@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## json-v0.3.0 - 2024-01-12
+#### Features
+- what a winner - (d8ee29e) - James X Nelson
+#### Miscellaneous Chores
+- **(version)** v0.4.0 - (28ce1e3) - James X Nelson
+
+- - -
+
 ## json-v0.2.0 - 2024-01-12
 #### Features
 - what a winner - (9986b13) - James X Nelson
