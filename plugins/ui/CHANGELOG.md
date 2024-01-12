@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## ui-v0.10.1 - 2024-01-12
+#### Bug Fixes
+- winning - (6f3f492) - James X Nelson
+
+- - -
+
 ## ui-v0.10.0 - 2024-01-12
 #### Features
 - winning - (baf2946) - James X Nelson
