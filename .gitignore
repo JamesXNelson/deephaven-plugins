@@ -21,3 +21,4 @@ junit.xml
 docker-compose.override.yml
 
 GITHUB_CHANGELOG.md
+releases/
