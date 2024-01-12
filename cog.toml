@@ -20,13 +20,4 @@ authors = []
 
 [bump_profiles]
 
-[packages]
-auth-keyclock = { path = "plugins/auth-keyclock" }
-dashboard-object-viewer = { path = "plugins/dashboard-object-viewer" }
-json = { path = "plugins/json" }
-matplotlib = { path = "plugins/matplotlib" }
-plotly = { path = "plugins/plotly" }
-plotly-express = { path = "plugins/plotly-express" }
-table-example = { path = "plugins/table-example" }
-ui = { path = "plugins/ui" }
 
