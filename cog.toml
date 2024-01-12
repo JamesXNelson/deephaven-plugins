@@ -13,9 +13,10 @@ post_bump_hooks = []
 # for package versions, which is what we actually use
 pre_package_bump_hooks = [
     "echo Updating {{package}} to version {{version}}",
-    "cog changelog --package {{package}} --at {{version}} -t full_hash > GITHUB_CHANGELOG.md",
 ]
-post_package_bump_hooks = []
+post_package_bump_hooks = [
+    "cog changelog --at {{package}}-v{{version}} -t full_hash > GITHUB_CHANGELOG.md",
+]
 
 [git_hooks]
 
