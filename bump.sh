@@ -75,7 +75,7 @@ if [ -n "$(git status --short)" ]; then
         git status --short
         log_error "Releases can only be performed with a clean git status"
         log_error 'You must commit/stash your changes, or `git reset --hard` to erase them'
-        exit 97
+        exit 95
     } 2>/dev/null
 fi
 
@@ -92,7 +92,7 @@ while (( $# > 0 )); do
                 log_error "Illegal argument $1. Already requested release of package '$package'"
                 log_error "You can only release one package at a time"
                 } 2>/dev/null
-                exit 96
+                exit 94
             fi
             if grep -q "$1" <<< "$all_plugins"; then
                 package="$1"
@@ -101,7 +101,7 @@ while (( $# > 0 )); do
                 log_error "Illegal argument $1. Expected one of:
 $all_plugins"
                 } 2>/dev/null
-                exit 95
+                exit 93
             fi
        ;;
     esac
@@ -114,7 +114,15 @@ if [ -z "$package" ]; then
     log_error "Valid choices are:
 $all_plugins"
     } 2>/dev/null
-    exit 94
+    exit 92
+fi
+
+if ! grep -q "plugins/$package" cog.toml; then
+    {
+    log_error "Did not see plugins/$package in cog.toml"
+    log_error "Make sure to list your plugins under the [plugins] section of cog.toml"
+    } 2>/dev/null
+    exit 91
 fi
 
 { log_info "Releasing package '$package'" ; } 2>/dev/null
