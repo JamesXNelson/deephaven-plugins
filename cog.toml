@@ -12,7 +12,7 @@ pre_bump_hooks = []
 post_bump_hooks = []
 # for package versions, which is what we actually use
 pre_package_bump_hooks = [
-    "echo Updating {{package} to version {{version}}"
+    "echo Updating {{package}} to version {{version}}"
 ]
 post_package_bump_hooks = []
 
