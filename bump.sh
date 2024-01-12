@@ -56,6 +56,8 @@ if ! gh release list --limit 1 2>/dev/stdout; then
 fi
 echo
 
+# todo: enforce git remote named origin 
+
 all_plugins="$(cd plugins ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
 
 function usage() {
