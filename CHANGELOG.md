@@ -2,6 +2,20 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.2.0 - 2024-01-12
+### Package updates
+- json bumped to json-v0.1.0
+- matplotlib bumped to matplotlib-v0.4.0
+- plotly-express bumped to plotly-express-v0.3.0
+- table-example bumped to table-example-v0.1.0
+- plotly bumped to plotly-v0.1.0
+- dashboard-object-viewer bumped to dashboard-object-viewer-v0.1.0
+### Global changes
+#### Miscellaneous Chores
+- put back packages - (d1a0a8c) - James X Nelson
+
+- - -
+
 ## v0.1.0 - 2024-01-12
 #### Bug Fixes
 - **(ui)** Wrap renderer in liveness scope instead of function element (#125) - (c0fb504) - Matthew Runyon
