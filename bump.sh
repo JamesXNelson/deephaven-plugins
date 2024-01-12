@@ -18,7 +18,7 @@ function log_info() {
     { echo "$log_prefix $(date "+%Y-%m-%d %H:%M:%S")$tab |--- $*" ; } 2>/dev/null
 } 2>/dev/null
 
-if ! command -v cog >/dev/null; then
+if ! which cog >/dev/null; then
     {
     log_error "cog command not found!"
     log_error "Installation instructions are here: https://github.com/cocogitto/cocogitto?tab=readme-ov-file#installation"
@@ -27,13 +27,19 @@ if ! command -v cog >/dev/null; then
     } 2>/dev/null
     exit 99
 fi
-set -x
-command -v cog
-if ! command -v gh >/dev/null; then
+if ! which gh >/dev/null; then
     {
     log_error "gh command not found!"
     log_error "Installation instructions are here: https://github.com/cli/cli?tab=readme-ov-file#installation"
     exit 98
+    } 2>/dev/null
+fi
+
+if ! gh auth status; then
+    {
+    log_error "You must be logged into gh to continue!"
+    log_error 'Run `gh auth login`'
+    exit 97
     } 2>/dev/null
 fi
 
