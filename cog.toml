@@ -20,7 +20,7 @@ pre_package_bump_hooks = [
 ]
 post_package_bump_hooks = [
     "cog changelog --at {{package}}-v{{version}} -t full_hash > GITHUB_CHANGELOG.md",
-    "git push origin",
+    "git push origin main",
     "gh release create {{package}}-v{{version}} ../../releases/RELEASE-{{package}}-v{{version}}.tgz ../../releases/RELEASE-{{package}}-v{{version}}.zip"
 ]
 
