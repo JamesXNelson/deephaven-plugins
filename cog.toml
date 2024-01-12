@@ -1,3 +1,25 @@
+from_latest_tag = true
+ignore_merge_commits = false
+disable_changelog = false
+generate_mono_repository_global_tag = true
+branch_whitelist = []
+skip_ci = "[skip ci]"
+skip_untracked = false
+pre_bump_hooks = []
+post_bump_hooks = []
+pre_package_bump_hooks = []
+post_package_bump_hooks = []
+
+[git_hooks]
+
+[commit_types]
+
+[changelog]
+path = "CHANGELOG.md"
+authors = []
+
+[bump_profiles]
+
 [packages]
 auth-keyclock = { path = "plugins/auth-keyclock" }
 dashboard-object-viewer = { path = "plugins/dashboard-object-viewer" }
@@ -7,3 +29,4 @@ plotly = { path = "plugins/plotly" }
 plotly-express = { path = "plugins/plotly-express" }
 table-example = { path = "plugins/table-example" }
 ui = { path = "plugins/ui" }
+
