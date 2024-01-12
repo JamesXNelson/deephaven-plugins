@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## ui-v0.3.1 - 2024-01-12
+#### Bug Fixes
+- fix ui - (7488451) - James X Nelson
+
+- - -
+
 ## ui-v0.3.0 - 2024-01-12
 #### Build system
 - checking build commit - (1aac6bc) - James X Nelson
