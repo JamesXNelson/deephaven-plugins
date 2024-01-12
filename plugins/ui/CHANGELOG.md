@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## ui-v0.2.2 - 2024-01-12
+#### Bug Fixes
+- changes happened now - (a355d19) - James X Nelson
+
+- - -
+
 ## ui-v0.2.1 - 2024-01-12
 #### Bug Fixes
 - **(release)** I fixed it! - (645fb1b) - James X Nelson
