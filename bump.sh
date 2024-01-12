@@ -23,10 +23,12 @@ if ! command -v cog >/dev/null; then
     log_error "cog command not found!"
     log_error "Installation instructions are here: https://github.com/cocogitto/cocogitto?tab=readme-ov-file#installation"
     log_error "mac users can install via brew; for other OSes, you should install cargo and then use cargo to install cocogitto (cog)"
+    log_error "Note that cog must be on your PATH. An alias will not work."
     } 2>/dev/null
     exit 99
 fi
-
+set -x
+command -v cog
 if ! command -v gh >/dev/null; then
     {
     log_error "gh command not found!"
