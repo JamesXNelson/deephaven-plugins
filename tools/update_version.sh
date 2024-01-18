@@ -100,7 +100,7 @@ function update_file() {
     local extra="${4:-}"
     sed -i "s/${prefix}.*/${prefix}${version}${extra}${suffix}/g" "$ROOT_DIR/plugins/$file"
     git add "$ROOT_DIR/plugins/$file"
-    git commit -m "chore: update $package to version $version"
+    git commit -m "chore: update $package to version $version${extra}"
 }
 
 extra=
@@ -136,4 +136,4 @@ case "$package" in
         }
 esac
 
-log_info "Done updating $package version to $version"
+log_info "Done updating $package version to $version${extra}"
