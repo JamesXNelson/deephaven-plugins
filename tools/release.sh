@@ -10,6 +10,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+SCRIPT_NAME=$(basename "${BASH_SOURCE[0]}")
+
 function log_error() {
     { echo -e "\033[31m$log_prefix $(date "+%Y-%m-%d %H:%M:%S")$tab |--- [ERROR] $* \033[0m" ; } 2> /dev/null
 } 2>/dev/null
@@ -58,7 +62,7 @@ echo
 
 # todo: enforce git remote named origin 
 
-all_plugins="$(cd plugins ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
+all_plugins="$(cd "$ROOT_DIR/plugins" ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
 
 function usage() {
     log_info "Simple utility to automate version bump + release process"
@@ -119,7 +123,7 @@ $all_plugins"
     exit 92
 fi
 
-if ! grep -q "plugins/$package" cog.toml; then
+if ! grep -q "plugins/$package" "$ROOT_DIR/cog.toml"; then
     {
     log_error "Did not see plugins/$package in cog.toml"
     log_error "Make sure to list your plugins under the [plugins] section of cog.toml"
@@ -129,4 +133,7 @@ fi
 
 { log_info "Releasing package '$package'" ; } 2>/dev/null
 
+(
+cd "$ROOT_DIR"
 cog bump --package "$package" --auto
+)

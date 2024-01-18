@@ -15,14 +15,14 @@ pre_package_bump_hooks = [
     "echo Updating {{package}} to version {{version}}",
     # prepare some source tar/zip for the release we are about to cut
     "rm -f GITHUB_CHANGELOG.md",
-    "tar -czf ../../releases/RELEASE-{{package}}-v{{version}}.tgz *",
-    "zip -qr ../../releases/RELEASE-{{package}}-v{{version}}.zip ./",
+    "tools/update_version.sh {{package}} {{version}}",
 ]
 post_package_bump_hooks = [
     "cog changelog --at {{package}}-v{{version}} -t full_hash > ../../releases/GITHUB_CHANGELOG-{{package}}.md",
+    "tools/update_version.sh {{package}} {{version}} --dev",
     "git push origin {{package}}-v{{version}}",
     "git push origin main",
-    "gh release create {{package}}-v{{version}} ../../releases/RELEASE-{{package}}-v{{version}}.tgz ../../releases/RELEASE-{{package}}-v{{version}}.zip --notes-file ../../releases/GITHUB_CHANGELOG-{{package}}.md --title {{package}}-v{{version}} --verify-tag"
+    "gh release create {{package}}-v{{version}} --notes-file ../../releases/GITHUB_CHANGELOG-{{package}}.md --title {{package}}-v{{version}} --verify-tag"
 ]
 
 [git_hooks]
