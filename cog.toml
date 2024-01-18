@@ -18,6 +18,7 @@ pre_package_bump_hooks = [
     "../../tools/update_version.sh {{package}} {{version}}",
 ]
 post_package_bump_hooks = [
+    "mkdir -p ../../releases",
     "cog changelog --at {{package}}-v{{version}} -t full_hash > ../../releases/GITHUB_CHANGELOG-{{package}}.md",
     "../../tools/update_version.sh {{package}} {{version}} --dev",
     "git push origin {{package}}-v{{version}}",
