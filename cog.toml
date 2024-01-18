@@ -15,7 +15,7 @@ pre_package_bump_hooks = [
     "echo Updating {{package}} to version {{version}}",
     # prepare some source tar/zip for the release we are about to cut
     "rm -f GITHUB_CHANGELOG.md",
-    "tools/update_version.sh {{package}} {{version}}",
+    "../../tools/update_version.sh {{package}} {{version}}",
 ]
 post_package_bump_hooks = [
     "cog changelog --at {{package}}-v{{version}} -t full_hash > ../../releases/GITHUB_CHANGELOG-{{package}}.md",
