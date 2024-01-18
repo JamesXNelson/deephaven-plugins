@@ -27,7 +27,7 @@ function log_info() {
     { echo "$log_prefix $(date "+%Y-%m-%d %H:%M:%S")$tab |--- $*" ; } 2>/dev/null
 } 2>/dev/null
 
-all_plugins="$(cd plugins ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
+all_plugins="$(cd "$ROOT_DIR/plugins" ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
 
 function usage() {
     log_info "Simple utility to update plugin file in order to change versions."
