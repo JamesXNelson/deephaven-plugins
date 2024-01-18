@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## ui-v0.13.0 - 2024-01-18
+#### Features
+- fake bump - (07e6f96) - James X Nelson
+#### Miscellaneous Chores
+- update ui to version 0.12.0 - (66b7ea0) - James X Nelson
+
+- - -
+
 ## ui-v0.12.0 - 2024-01-18
 #### Features
 - fake bump - (808cf2f) - James X Nelson
