@@ -102,7 +102,7 @@ function update_file() {
     local extra="${4:-}"
     local expected="${prefix}${version}${extra}${suffix}"
     if ! grep -q "$expected" "$ROOT_DIR/plugins/$file"; then
-        sed "s/${prefix}.*/${expected}/g" -i "$ROOT_DIR/plugins/$file"
+        sed -e "s/${prefix}.*/${expected}/g" -i '' "$ROOT_DIR/plugins/$file"
         git add "$ROOT_DIR/plugins/$file"
         need_commit=true
     fi
