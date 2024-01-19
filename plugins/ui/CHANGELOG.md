@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## ui-v0.3.0 - 2024-01-19
+#### Features
+- fake feature - (8fac465) - James Nelson
+
+- - -
+
 ## ui-v0.2.0 - 2024-01-19
 #### Bug Fixes
 - get sed on mac happy - (6d23fce) - James Nelson
