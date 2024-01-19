@@ -1,4 +1,4 @@
-#!/bin/bash -i
+#!/bin/bash
 
 # This script is used to update the version of a given plugin in its source code.
 # Because this differs for various plugins, this script is used to hide all that complexity
