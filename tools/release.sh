@@ -34,7 +34,7 @@ fi
 
 # todo: enforce git remote named origin 
 
-all_plugins="$(cd "$ROOT_DIR/plugins" ; find ./ -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
+all_plugins="$(cd "$ROOT_DIR/plugins" ; find . -mindepth 1 -maxdepth 1 -type d | sed  's|./||g')"
 
 function usage() {
     log_info "Simple utility to automate version bump + release process"
