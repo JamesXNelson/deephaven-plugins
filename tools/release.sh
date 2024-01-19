@@ -31,34 +31,6 @@ if ! which cog >/dev/null; then
     } 2>/dev/null
     exit 99
 fi
-if ! which gh >/dev/null; then
-    {
-    log_error "gh command not found!"
-    log_error "Installation instructions are here: https://github.com/cli/cli?tab=readme-ov-file#installation"
-    exit 98
-    } 2>/dev/null
-fi
-if ! gh auth status; then
-    {
-    log_error "You must be logged into gh to continue!"
-    log_error 'Run `gh auth login`'
-    exit 97
-    } 2>/dev/null
-fi
-
-# we need to run a gh command to ensure you've set the gh repo already.
-# we also can't pipe the output of this command to /dev/null, or else gh will always exit with code 0
-# so, we'll prepare the user for some noise.
-echo
-log_info "Listing previous release to ensure gh is setup correctly:"
-if ! gh release list --limit 1 2>/dev/stdout; then
-    {
-    log_error "You must select the correct gh repo to continue!"
-    log_error 'Run `gh repo set-default git@github.com:deephaven/deephaven-plugins.git`'
-    exit 96
-    } 2>/dev/null
-fi
-echo
 
 # todo: enforce git remote named origin 
 
@@ -85,6 +57,7 @@ if [ -n "$(git status --short)" ]; then
     } 2>/dev/null
 fi
 
+# Collect arguments
 package=
 while (( $# > 0 )); do
     case "$1" in
@@ -114,6 +87,7 @@ $all_plugins"
     shift
 done
 
+# Validate arguments
 if [ -z "$package" ]; then
     {
     log_error "Expected exactly one package name argument"
@@ -131,8 +105,8 @@ if ! grep -q "plugins/$package" "$ROOT_DIR/cog.toml"; then
     exit 91
 fi
 
+# Perform release
 { log_info "Releasing package '$package'" ; } 2>/dev/null
-
 (
 cd "$ROOT_DIR"
 cog bump --package "$package" --auto

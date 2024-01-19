@@ -133,6 +133,7 @@ case "$package" in
         *)
         {
             log_error "Unhandled plugin $package.  You will need to add wiring in $SCRIPT_NAME"
+            exit 90
         }
 esac
 
